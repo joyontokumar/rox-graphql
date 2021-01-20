@@ -28,7 +28,7 @@ const Root = () => {
             <Route exact path="/" component={AlbumList} />
             <Route exact path="/albums/new" component={AlbumCreate} />
             <Route exact path="/products/new" component={ProductCreate}/>
-            <Route exact path="/product/:id" component={ProductDetails}/>
+            <Route path="/product/:id" component={ProductDetails}/>
             <Route path="/albums/:id" component={AlbumDetail} />
         </HashRouter>
       </ApolloProvider>

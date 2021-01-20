@@ -8,15 +8,15 @@ import ProductQuery from '../queries/fetchProduct'
 class ProductDetails extends Component {
     render() {
         console.log(this.props);
-        const { products } = this.props.data
-        if(!products) {return null}
+        const { product } = this.props.data
+        if(!product) {return null}
 
         return (
             <div>
                 <Link to="/"> Back</Link>
-                <h4>{products.title}</h4>
-                <p>{products.description}</p>
-                <p>{products.price}</p>
+                <h4>{product.title}</h4>
+                <p>{product.description}</p>
+                <p>{product.price}</p>
             </div>
         );
     }

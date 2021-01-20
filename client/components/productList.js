@@ -13,16 +13,12 @@ class ProductList extends Component {
         const {products} = this.props.data;
         return products.map(({id, title, description, price}) => (
             <li key={id} className="collection-item">
-                    <Link to={`/product/${id}`}>
-                        {title} <br/>
-                        {description} <br/>
-                        {price}
-                    </Link>
-                <i
-                    className="material-icons"
-                >
-                    delete
-                </i>
+                <Link to={`/product/${id}`}>
+                    {title} <br/>
+                    {description} <br/>
+                    {price}
+                </Link>
+                <i className="material-icons">delete</i>
             </li>
         ));
     }
