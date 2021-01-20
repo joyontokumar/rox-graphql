@@ -2,6 +2,7 @@ import React, {Component} from 'react'
 import gql from 'graphql-tag'
 import { graphql, compose } from 'react-apollo'
 import { Link } from 'react-router-dom'
+import ProductList from './productList'
 
 //graph
 import query from '../queries/fetchAlbumsList'
@@ -34,6 +35,7 @@ class AlbumList extends Component {
         const {loading} = this.props.data;
         if(loading) { return <div>Loading....</div> }
         return (
+            <>
             <div>
                 <h3 className="headline">Album Store</h3>
                 <ul className="collection">
@@ -43,6 +45,8 @@ class AlbumList extends Component {
                     <i className="material-icons">add</i>
                 </Link>
             </div>
+            <ProductList/>
+            </>
         )
     }
 }
@@ -55,5 +59,4 @@ const mutation = gql`
     }
 `;
 export default compose(
-    graphql(mutation),
     graphql(query))(AlbumList);

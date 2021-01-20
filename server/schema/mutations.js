@@ -4,7 +4,9 @@ const mongoose = require('mongoose');
 const Album = mongoose.model('album');
 const Song = mongoose.model('song');
 const AlbumType = require('./album_type');
+const ProductType = require('./product_type');
 const SongType = require('./song_type');
+const Product =  mongoose.model('product')
 
 const mutation = new GraphQLObjectType({
   name: 'Mutation',
@@ -18,6 +20,7 @@ const mutation = new GraphQLObjectType({
         return (new Album({ title })).save()
       }
     },
+
     addSongToAlbum: {
       type: AlbumType,
       args: {
@@ -40,6 +43,18 @@ const mutation = new GraphQLObjectType({
       args: { id: { type: GraphQLID } },
       resolve(parentValue, { id }) {
         return Album.remove({ _id: id });
+      }
+    },
+    // add product
+    addProduct: {
+      type: ProductType,
+      args: {
+        title: {type: GraphQLString},
+        description: {type: GraphQLString},
+        price: {type: GraphQLString}
+      },
+      resolve(parentValue, {title, description, price}) {
+        return (new Product({ title, description, price})).save()
       }
     }
   }

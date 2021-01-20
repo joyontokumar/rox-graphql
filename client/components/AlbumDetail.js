@@ -9,6 +9,7 @@ import SongList from './SongList'
 
 class AlbumDetail extends Component {
     render() {
+        console.log(this.props);
         const { album } = this.props.data
         if(!album) {return null}
 
